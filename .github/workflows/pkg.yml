@@ -26,6 +26,7 @@ jobs:
           - "debian:buster"
           - "debian:bullseye"
           - "centos:7"
+          - "rockylinux:8"
         target: x86_64
         include:
           - image: "debian:bullseye"
