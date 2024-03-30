@@ -1,0 +1,37 @@
+name: "pkg"
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  pkg:
+    uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@v5
+    with:
+      docker_org: jisuwoniu
+      docker_repo: ploutos-pkg-demo
+      docker_build_rules: |
+        include:
+          - platform:  "linux/amd64"
+            shortname: "amd64"
+            mode:      "build"
+          - platform:  "linux/arm64"
+            shortname: "arm64"
+            target:    "aarch64-unknown-linux-musl"
+            mode:      "copy"
+
+      package_build_rules: |
+        image:
+          - "ubuntu:xenial"
+          - "ubuntu:bionic"
+          - "ubuntu:focal"
+          - "ubuntu:jammy"
+          - "debian:stretch"
+          - "debian:buster"
+          - "debian:bullseye"
+          - "centos:7"
+          - "centos:8"
+        target: x86_64
+        include:
+          - image: "debian:bullseye"
+            target: aarch64-unknown-linux-musl
