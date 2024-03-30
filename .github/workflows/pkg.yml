@@ -6,7 +6,7 @@ on:
 
 jobs:
   pkg:
-    uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@v5
+    uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@v7
     with:
       docker_org: jisuwoniu
       docker_repo: ploutos-pkg-demo
