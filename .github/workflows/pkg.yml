@@ -22,15 +22,10 @@ jobs:
 
       package_build_rules: |
         image:
-          - "ubuntu:xenial"
-          - "ubuntu:bionic"
-          - "ubuntu:focal"
           - "ubuntu:jammy"
-          - "debian:stretch"
           - "debian:buster"
           - "debian:bullseye"
           - "centos:7"
-          - "centos:8"
         target: x86_64
         include:
           - image: "debian:bullseye"
